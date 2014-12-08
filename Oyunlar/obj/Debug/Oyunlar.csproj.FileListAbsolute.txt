@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\bin\Debug\Oyunlar.exe.config
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\bin\Debug\Oyunlar.exe
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\bin\Debug\Oyunlar.pdb
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.AnaForm.resources
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.Properties.Resources.resources
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.exe
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.pdb
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.SuresizOyun.resources
+C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.SureliOyun.resources
