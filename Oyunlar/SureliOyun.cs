@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.VisualBasic;
 using System.Data.SqlClient; //SQL Bağlantısı için gerekli kod.
 
 namespace Oyunlar
@@ -24,7 +24,7 @@ namespace Oyunlar
 
         public void ResetIslemi()
         {
-            SonucLabel.Visible = false;
+            //SonucLabel.Visible = false;
             TahminKutu.Enabled = true;
             TahminButon.Enabled = true;
             ResetButon.Enabled = false;
@@ -77,15 +77,23 @@ namespace Oyunlar
                             ResetButon.Enabled = true;
                             ResetButon.Focus();
 
+                            string ifade = Interaction.InputBox("Lütfen adınızı girin:", "Tebrikler, bildiniz!", "", 200, 200);
+                            if (ifade.Length <= 0)
+                            {
+                                ifade = "Girilmemiş";
+                            }
 
                             try
                             {
-                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu (Puan, Tip) VALUES (@Puan, @Tip)", Ayarlar.baglanti);
+                                Ayarlar.BaglantiAc();
+                                
+                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu (Puan, Tip, Isim) VALUES (@Puan, @Tip, @Isim)", Ayarlar.baglanti);
+                                
                                 int puan = sure * 10;
+                                
                                 komut.Parameters.AddWithValue("@Puan", puan);
                                 komut.Parameters.AddWithValue("@Tip", "Süreli");
-
-                                Ayarlar.BaglantiAc();
+                                komut.Parameters.AddWithValue("@Isim", ifade);
 
                                 komut.ExecuteNonQuery();
 

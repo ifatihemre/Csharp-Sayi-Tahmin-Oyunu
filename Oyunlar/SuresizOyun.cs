@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Microsoft.VisualBasic;
+
 using System.Data.SqlClient; // SQL bağlantısı için gerekli olan namespace.
 
 namespace Oyunlar
@@ -23,7 +25,7 @@ namespace Oyunlar
 
         public void ResetIslemi()
         {
-            SonucLabel.Visible = false;
+            //SonucLabel.Visible = false;
             TahminKutu.Enabled = true;
             TahminButon.Enabled = true;
             ResetButon.Enabled = false;
@@ -59,11 +61,13 @@ namespace Oyunlar
                     {
                         if (girilen != sayi)
                         {
+                            MesajLabel.ForeColor = Color.Red;
                             MesajLabel.Text = "Bilemediniz!";
                             HakLabel.Text = "Kalan hakkınız: " + hak.ToString();
                         }
                         else
                         {
+                            MesajLabel.ForeColor = Color.Green;
                             MesajLabel.Text = "Tebrikler, sayıyı bildiniz!";
                             SonucLabel.Visible = true;
                             TahminKutu.Enabled = false;
@@ -71,15 +75,23 @@ namespace Oyunlar
                             ResetButon.Enabled = true;
                             ResetButon.Focus();
 
+                            string ifade = Interaction.InputBox("Lütfen adınızı girin:", "Tebrikler, bildiniz!", "", 200, 200);
+                            if (ifade.Length <= 0)
+                            {
+                                ifade = "Girilmemiş";
+                            }
+
+
                             try
                             {
                                 Ayarlar.BaglantiAc();
 
-                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu(Puan, Tip) VALUES (@Puan, @Tip)", Ayarlar.baglanti);
+                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu(Puan, Tip, Isim) VALUES (@Puan, @Tip, @Isim)", Ayarlar.baglanti);
                                 int puan = (hak+1) * 10;
 
                                 komut.Parameters.AddWithValue("@Puan", puan);
                                 komut.Parameters.AddWithValue("@Tip", "Süresiz");
+                                komut.Parameters.AddWithValue("@Isim", ifade);
 
 
                                 komut.ExecuteNonQuery();

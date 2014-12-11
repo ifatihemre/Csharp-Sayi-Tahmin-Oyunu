@@ -11,7 +11,7 @@ namespace Oyunlar
 
         public static void BaglantiAc() 
         {
-            baglanti = new SqlConnection("Data Source=xx; Initial Catalog=ders;Integrated Security=true");
+            baglanti = new SqlConnection("Data Source=FATIMRENER; Initial Catalog=ders;Integrated Security=true");
             if (baglanti.State == ConnectionState.Closed)
             {
                 baglanti.Open();

@@ -37,14 +37,15 @@ namespace Oyunlar
 
             Liste.Columns.Clear();
             Liste.Columns.Add("Sıra", 30, HorizontalAlignment.Left);
+            Liste.Columns.Add("İsim", 50, HorizontalAlignment.Left);
             Liste.Columns.Add("Puan", 40, HorizontalAlignment.Left);
-            Liste.Columns.Add("Tarih", 133, HorizontalAlignment.Left);
+            Liste.Columns.Add("Tarih", 83, HorizontalAlignment.Left);
 
             try
             {
                 Ayarlar.BaglantiAc();
 
-                SqlCommand komut = new SqlCommand("SELECT TOP 10 ROW_NUMBER() OVER(ORDER BY Puan DESC,Tarih DESC) as Sıra, Puan, Tarih FROM PuanDurumu WHERE Tip = 'Süresiz'", Ayarlar.baglanti);
+                SqlCommand komut = new SqlCommand("SELECT TOP 10 ROW_NUMBER() OVER(ORDER BY Puan DESC,Tarih DESC) as Sıra, Isim, Puan, Tarih FROM PuanDurumu WHERE Tip = 'Süresiz'", Ayarlar.baglanti);
 
                 SqlDataAdapter tablo = new SqlDataAdapter(komut);
 
@@ -59,6 +60,7 @@ namespace Oyunlar
                     if (satir.RowState != DataRowState.Deleted)
                     {
                         ListViewItem item = new ListViewItem(satir["Sıra"].ToString());
+                        item.SubItems.Add(satir["Isim"].ToString());
                         item.SubItems.Add(satir["Puan"].ToString());
                         item.SubItems.Add(satir["Tarih"].ToString());
 
