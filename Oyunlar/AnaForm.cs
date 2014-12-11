@@ -12,17 +12,18 @@ namespace Oyunlar
 {
     public partial class AnaForm : Form
     {
-        SureliOyun sureli;
+        SureliOyun sureli; 
+        SureliOyunPD sureliPD;
         SuresizOyun suresiz;
+        SuresizOyunPD suresizPD;
         
         public AnaForm()
         {
             InitializeComponent();
         }
 
-        private void süreliOyunToolStripMenuItem_Click(object sender, EventArgs e)
+        private void başlatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if (sureli == null || sureli.IsDisposed)
             {
                 sureli = new SureliOyun();
@@ -35,12 +36,10 @@ namespace Oyunlar
             }
 
             sureli.WindowState = FormWindowState.Maximized;
-
         }
 
-        private void süresizOyunToolStripMenuItem_Click(object sender, EventArgs e)
+        private void başlatToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             if (suresiz == null || suresiz.IsDisposed)
             {
                 suresiz = new SuresizOyun();
@@ -48,12 +47,44 @@ namespace Oyunlar
                 suresiz.Show();
             }
             else
-        	{
+            {
                 suresiz.Focus();
-        	}
+            }
 
             suresiz.WindowState = FormWindowState.Maximized;
+        }
 
+        private void puanDurumuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sureliPD == null || sureliPD.IsDisposed)
+            {
+                sureliPD = new SureliOyunPD();
+                sureliPD.MdiParent = this;
+                sureliPD.Show();
+            }
+            else
+            {
+                sureliPD.Focus();
+            }
+
+            sureliPD.WindowState = FormWindowState.Maximized;
+        }
+
+        private void puanDurumuToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            if (suresizPD == null || suresizPD.IsDisposed)
+            {
+                suresizPD = new SuresizOyunPD();
+                suresizPD.MdiParent = this;
+                suresizPD.Show();
+            }
+            else
+            {
+                suresizPD.Focus();
+            }
+
+            suresizPD.WindowState = FormWindowState.Maximized;
         }
     }
 }

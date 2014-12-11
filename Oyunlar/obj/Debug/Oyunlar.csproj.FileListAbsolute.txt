@@ -9,3 +9,16 @@ C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.exe
 C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.pdb
 C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.SuresizOyun.resources
 C:\Users\Administrator\Desktop\Fatih Form\Oyunlar\Oyunlar\obj\Debug\Oyunlar.SureliOyun.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\bin\Debug\Oyunlar.exe.config
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.exe
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.pdb
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\bin\Debug\Oyunlar.exe
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\bin\Debug\Oyunlar.pdb
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.csprojResolveAssemblyReference.cache
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.AnaForm.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.Properties.Resources.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.SureliOyun.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.SuresizOyun.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.csproj.GenerateResource.Cache
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.SureliOyunPD.resources
+C:\Users\Fatih\Desktop\DersDeneme\Oyunlar\obj\Debug\Oyunlar.SuresizOyunPD.resources

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SqlClient; // SQL bağlantısı için gerekli olan namespace.
+
 namespace Oyunlar
 {
     public partial class SuresizOyun : Form
@@ -40,6 +42,7 @@ namespace Oyunlar
 
         private void SureliOyun_Load(object sender, EventArgs e)
         {
+            
             this.LayoutMdi(MdiLayout.Cascade);
             ResetIslemi();
 
@@ -67,6 +70,29 @@ namespace Oyunlar
                             TahminButon.Enabled = false;
                             ResetButon.Enabled = true;
                             ResetButon.Focus();
+
+                            try
+                            {
+                                Ayarlar.BaglantiAc();
+
+                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu(Puan, Tip) VALUES (@Puan, @Tip)", Ayarlar.baglanti);
+                                int puan = (hak+1) * 10;
+
+                                komut.Parameters.AddWithValue("@Puan", puan);
+                                komut.Parameters.AddWithValue("@Tip", "Süresiz");
+
+
+                                komut.ExecuteNonQuery();
+
+                                Ayarlar.BaglantiKapat();
+
+                                MessageBox.Show("Puanınız: " + puan);
+
+                            }
+                            catch (SqlException hata)
+                            {
+                                MessageBox.Show(hata.Message);
+                            }
                         }
                     }
                     else

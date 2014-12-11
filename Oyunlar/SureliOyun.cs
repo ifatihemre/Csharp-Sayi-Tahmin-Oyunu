@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SqlClient; //SQL Bağlantısı için gerekli kod.
+
 namespace Oyunlar
 {
     public partial class SureliOyun : Form
     {
+
         public int sayi, girilen, sure, baslangic, bitis;
-        public bool durum;
 
         public SureliOyun()
         {
@@ -28,11 +30,11 @@ namespace Oyunlar
             ResetButon.Enabled = false;
 
             sure = 60;
-            durum = false;
             
             GeriSayim.Interval = 1000;
+            GeriSayim.Start();
 
-            baslangic = 1; bitis = 10;
+            baslangic = 1; bitis = 100;
 
             Random s = new Random();
             sayi = s.Next(baslangic, bitis);
@@ -47,16 +49,10 @@ namespace Oyunlar
         {
             this.LayoutMdi(MdiLayout.Cascade);
             ResetIslemi();
-
         }
 
         public void TahminIslemi() 
         {
-            if ( ! durum)
-            {
-                GeriSayim.Start();
-                durum = true;
-            }
             
             
             if (int.TryParse(TahminKutu.Text, out girilen))
@@ -73,7 +69,6 @@ namespace Oyunlar
                         else
                         {
                             GeriSayim.Stop();
-                            durum = false;
 
                             MesajLabel.Text = "Tebrikler, sayıyı bildiniz!";
                             SonucLabel.Visible = true;
@@ -81,6 +76,30 @@ namespace Oyunlar
                             TahminButon.Enabled = false;
                             ResetButon.Enabled = true;
                             ResetButon.Focus();
+
+
+                            try
+                            {
+                                SqlCommand komut = new SqlCommand("INSERT INTO PuanDurumu (Puan, Tip) VALUES (@Puan, @Tip)", Ayarlar.baglanti);
+                                int puan = sure * 10;
+                                komut.Parameters.AddWithValue("@Puan", puan);
+                                komut.Parameters.AddWithValue("@Tip", "Süreli");
+
+                                Ayarlar.BaglantiAc();
+
+                                komut.ExecuteNonQuery();
+
+                                Ayarlar.BaglantiKapat();
+                                
+                                MessageBox.Show("Puanınız: "+ puan);
+                            }
+                            catch(SqlException hata)
+                            {
+                                MessageBox.Show(hata.Message);
+                            }
+                            
+
+
                         }
 
                     
@@ -128,7 +147,6 @@ namespace Oyunlar
             else
             {
                 GeriSayim.Stop();
-                durum = false;
 
                 HakLabel.Text = "Hiç süreniz kalmadı!";
                 MesajLabel.Text = "Bilmeniz gereken sayı:";
